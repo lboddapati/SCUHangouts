@@ -1,10 +1,10 @@
 <?php
     $phpmsg="";
-	if(isset($_POST['email']) && isset($_POST['send_email'])) {
-		$to = $_POST['email'];
-		if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {    //validate email
-  			$phpmsg = "Invalid email format!"; 
-		} else {
+    if(isset($_POST['email']) && isset($_POST['send_email'])) {
+        $to = $_POST['email'];
+        if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {    //validate email
+              $phpmsg = "Invalid email format!"; 
+        } else {
             $con = mysqli_connect('localhost', 'root', 'password', 'webchat');
             if(mysqli_connect_errno()) {
                 die ("Failed to connect to MYSQL: ".mysqli_connect_error());
@@ -31,24 +31,23 @@
                 }
             }
         }
-	}
+    }
 ?>
 
 <html>
 <head>
-	<title>Forgot username/password</title>
-	<link rel="stylesheet" type="text/css" href="css/send_username_password.css">
+    <title>Forgot username/password</title>
+    <link rel="stylesheet" type="text/css" href="css/send_username_password.css">
 </head>
 <body>
     <h1>SCU Hangouts</h1>
-    <!--<div id="vertical"></div>-->
     <p><?php echo $phpmsg ?></p>
     <div id="form">
-	<form action="send_username_password.php" method="post">
-		<input type="email" name="email" placeholder="Enter the email used to register" required/><br>
-		<input type="submit" name="send_email" value="Email username/password"/>
-	</form>
+    <form action="send_username_password.php" method="post">
+        <input type="email" name="email" placeholder="Enter the email used to register" required/><br>
+        <input type="submit" name="send_email" value="Email username/password"/>
+    </form>
     <button onclick="location.href='index.php'">Go Back to Login Page</button>
-	</div>
+    </div>
 </body>
 </html

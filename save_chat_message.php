@@ -16,9 +16,9 @@
     $msg = mysqli_real_escape_string($connect, $msg);
     $query = "INSERT INTO chats VALUES(DEFAULT, '$sender', '$receiver', '$timestamp', '$msg')";
     if(mysqli_query($connect, $query)) {
-     	echo "success";
+         echo "success";
     } else {
-     	echo "failed ".mysqli_error($connect);
+         echo "failed ".mysqli_error($connect);
     }
 
     mysqli_close($connect);

@@ -15,24 +15,23 @@
         $friend = $_POST['friendname'];
         $msg = "";
         $success = "true";
-        if($username == $friend) {
+        if($username == $friend) {    // check if friend name is same as username
             $success = "false";
             $msg = "Cannot add yourself as friend";
-        } else if(mysqli_num_rows(mysqli_query($connect, "SELECT * FROM users WHERE username='$friend'"))<=0) {
+        } else if(mysqli_num_rows(mysqli_query($connect, "SELECT * FROM users WHERE username='$friend'"))<=0) {    // check if friend name exists in database
             $success = "false";
             $msg = "No ".$friend." found";
-        } else {
+        } else {    // If yes, then check if a relation already exists between friend and user.
             $result1 = mysqli_query($connect, "SELECT relation FROM relationship WHERE user1='$username' AND user2='$friend'");
             if(mysqli_num_rows($result1)>0) {
                 $success = "false";
-                $relation = mysqli_fetch_assoc($result1)["relation"];
-                if($relation == 'pending') {
+                $relation = mysqli_fetch_assoc($result1)["relation"];                if($relation == 'pending') {
                     $msg = "Friend request to ".$friend." already sent!";
                 } else if($relation == 'accepted' or $relation == 'friend') {
                     $msg = $friend." is already your friend";
                 } else if($relation == 'blocked') {
                     $msg = "You cannot sent requests to ".$friend;
-                } else { // rejected
+                } else { // If request was rejected by friend rejected, resend the request.
                     $result2 = mysqli_query($connect, "UPDATE relationship SET relation='pending' WHERE user1='$username' AND user2='$friend'");
                     if ($result2) {
                         $success = "true";
@@ -42,7 +41,7 @@
                         $msg = "Could not add ".$friend;
                     }
                 }
-            } else{
+            } else{    // If no previous relation exists, add a new entry with relation=pending.
                 $result1 = mysqli_query($connect, "INSERT INTO relationship VALUES('$username', '$friend', 'pending')");
                 if ($result1) {
                     $success = "true";

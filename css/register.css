@@ -45,13 +45,13 @@ h1 {
 }
 
 #form {
-	color: white;	
+    color: white;    
     text-align: center;
     width: 700px;
     height: 300px;
     margin: auto;
-    position: absolute;
-    top: 30px;
+    position: relative;
+    top: 170px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -66,41 +66,41 @@ input, button {
     font-family: Papyrus, fantasy;
 }
 input[type='text'], input[type='password'], input[type='email'] {
-	background: none;
-	color: white;
-	border: solid 1px white;
+    background: none;
+    color: white;
+    border: solid 1px white;
 }
 input[type='button'], input[type='submit'],  button {
-	background: white;
-	color: black;
-	border: none;
+    background: white;
+    color: black;
+    border: none;
     cursor: pointer;
     padding: 0;
 }
 input:focus, input:hover {
-	outline: none;
-	box-shadow: 0 0 5px white;
+    outline: none;
+    box-shadow: 0 0 5px white;
 }
 #uploadBtn {
-	width: 0px;
-	height: 0px;
-	overflow: hidden;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
 }
 #uploadBtnTrigger:hover, #uploadBtnTrigger:focus, #uploadBtnTrigger:active {
     text-shadow: 0 0 20px white;
 }
 #uploadBtnTrigger {
-	cursor: pointer;
-	position: absolute;
-	top: 177px;
-	font-size: 13px;
+    cursor: pointer;
+    position: absolute;
+    top: 177px;
+    font-size: 13px;
 }
 form {
-	padding: 0;
-	margin-bottom: 0;
-	margin-top: 0;
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 button:hover {
-	box-shadow: 0 0 5px white;
+    box-shadow: 0 0 5px white;
 
 }

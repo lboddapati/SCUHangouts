@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="css/welcome.css">
 </head>
 <body>
-    <!--<div id="vertical"></div>-->
     <div id="profile">
             <div id="header">
                 <img id="profile_pic" src="<?php echo $pic?>" alt="change" text="change" onclick="popup_upload_profile_pic()"/>
@@ -53,17 +52,10 @@
             display_received_requests();
             display_sent_requests();
             //TODO: display blocked friends
+            //TODO: display notification when new message received
         });
 
-        $("#uploadBtnTrigger").click(function() {
-            //alert("clicked!");
-            $("#new_picture").trigger('click');
-        });
 
-        $("#new_picture").change(function() {
-            //alert($(this).val());
-            $("#picture_name").val($(this).val());
-        });
 
         // function to fetch and display friend list from database.
         function display_friends(){
@@ -181,15 +173,17 @@
         // ==============================================
         // If u2 accepts a request from u1, then insert an entry u2-u1 with relation=friend in the relationship table.
         // Update the entry for u1-u2 with relation=accepted. u1 gets notified that u2 accepted his/her request.
-        // When u1 ackowledges it, then u1-u2 relation is updated to friend.
+        // When u1 ackowledges it(process_sent_friend_request), then u1-u2 relation is updated to friend.
         //
         // If u2 rejects request from u1, then update u1-u2 with relation=rejected. u1 gets notified.
-        // When u1 ackowledges it, then remove the u1-u2 entry from the table. u1 can send another request to u2.
+        // When u1 ackowledges it(process_sent_friend_request), then remove the u1-u2 entry from the table. u1 can send another request to u2.
         //
         // If u2 blocks u1, then update u1-u2 relation to blocked. Also insert an entry u2-u1 with relation=blocked. u1 and u2 cannot send
         // requests to each other anymore.
 
-        // function to process (accept/reject/block) a received friend request
+        // function to process a received friend request.
+        // from: friend request from.
+        // action: accept/reject/block.
         function process_received_friend_request(from, action) {
             var result = true;
             if(action == "block") {
@@ -209,7 +203,12 @@
             }
         }
 
-        // function to process a sent friend request .
+
+        // function to process a sent friend request.
+    // to: friend request to.
+    // action: pending/accepted/rejected.
+    // if action = pending or rejected -> delete the sent request from relationship table.
+    // if action = accepted -> update relation to 'friend' in relationship table.
         function process_sent_friend_request(to, action) {
             $.ajax({
                 url: 'process_sent_friend_request.php',
@@ -220,10 +219,12 @@
             });
         }
 
+
         // When a friend's name is clicked on, a chat windw pops up with previous chat history.
         function popup_chat_window(f){
             var chat_window = window.open("popup_chat_window.php?username=<?php echo $username?>&friend="+f, "chat window "+f, "location=no, width=300, height=500, location=no");
         }
+
 
         // When 'Add Friend' button is clicked, display a form where you can enter the username
         // that you want to send a request to.
@@ -254,10 +255,18 @@
             return false;
         });
 
+
         // When you click on your profile pic, display a form to upload the new picture.
         function popup_upload_profile_pic() {
             $("#popup_edit_profile_pic").show(500);
         };
+        // Choose new profile picture file to upload
+        $("#uploadBtnTrigger").click(function() {
+            $("#new_picture").trigger('click');
+        });
+        $("#new_picture").change(function() {
+            $("#picture_name").val($(this).val());
+        });
         // Upload the new picture and update in database.
         $("#save").click(function(event) {
             event.stopPropagation();
@@ -286,6 +295,7 @@
                 }
             });
         });
+
 
         // Hide popup forms when cancelled
         $(".cancel").click(function(event) {

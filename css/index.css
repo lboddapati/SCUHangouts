@@ -34,23 +34,23 @@ p {
     margin-right: auto;
 }
 
-#vertical {
+/*#vertical {
     position: fixed;
     top: 0;
     left: 100px;
     width: 50px;
     height: 100%;
     background: #CCB2FF;
-}
+}*/
 
 #form {
-	color: white;	
+    color: white;    
     text-align: center;
     width: 500px;
     height: 200px;
     margin: auto;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: 200px;
     bottom: 0;
     right: 0;
     left: 0;
@@ -74,25 +74,25 @@ input, button {
     font-family: Papyrus, fantasy;
 }
 input[type='text'], input[type='password'], input[type='email'] {
-	background: none;
-	color: white;
-	border: solid 1px white;
+    background: none;
+    color: white;
+    border: solid 1px white;
 }
 input[type='button'], input[type='submit'],  button {
-	background: white;
-	color: black;
-	border: none;
+    background: white;
+    color: black;
+    border: none;
     cursor: pointer;
     padding: 0;
 }
 input:focus, input:hover, input:active, button:hover {
-	outline: none;
-	box-shadow: 0 0 5px white;
+    outline: none;
+    box-shadow: 0 0 5px white;
 }
 a {
-	color: white;
-	text-decoration: none;
-	font-size: 13px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
 }
 a:hover {
     text-shadow: 0 0 20px white;
