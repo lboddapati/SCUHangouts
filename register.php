@@ -126,28 +126,53 @@
 <html>
 <head>
     <title>Register</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
 </head>
-<body>
+<body class="container text-center">
     <h1>SCU Hangouts</h1>
     <div id="vertical"></div>
     <p id="php_message"><?php echo $php_msg ?></p>
 
     <div id="form">
         <form action="register.php" method="post" enctype="multipart/form-data">
-            <input required type="email" name="email" placeholder="E-mail" value=<?php echo $email?>> <br>
-            <input required type="text" name="username" placeholder="Username" value=<?php echo $username?>> <br>
-            <input required type="password" placeholder="Password" name="password"> <br>
-            <input required type="password" placeholder="Confirm Password" name="confirm_password" > <br>
-            
-            <input type="text" id="picture_name" placeholder="No file chosen" disabled="disabled">
-            <input id="uploadBtn" type="file" name="picture" accept="image/*"/>
-            <span id="uploadBtnTrigger">Upload Profile Picture</span> <br>
-            
-            <input type="submit" name="register" value="Sign Up">
+            <div class="row form-group">
+                <div class="col-sm-12">
+                    <input required type="email" name="email" placeholder="E-mail" value=<?php echo $email?>>
+                </div>
+                <div class="col-sm-12">
+                    <input required type="text" name="username" placeholder="Username" value=<?php echo $username?>> <br>
+                </div>
+                <div class="col-sm-12">
+                    <input required type="password" placeholder="Password" name="password"> 
+                </div>
+                <div class="col-sm-12">
+                    <input required type="password" placeholder="Confirm Password" name="confirm_password" > <br>
+                </div>
+                <div id="profile-placeholder" class="col-sm-12">
+                    <input type="text" id="picture_name" placeholder="Upload Profile Picture" disabled="disabled">
+                        <i id="uploadBtnTrigger" class="fa fa-cloud-upload"></i>
+                    </input>
+                    <input id="uploadBtn" type="file" name="picture" accept="image/*"/>
+                </div>
+                <div class="col-sm-12">
+                    <input type="submit" name="register" value="Sign Up">
+                </div>
+                <div class="col-sm-12">
+                    <button onclick="location.href='index.php'">Go Back to Login Page</button>
+                </div>
+            </div>
         </form>
-        <button onclick="location.href='index.php'">Go Back to Login Page</button>
+    </div>
+    <div class="blur">
+        <img src="images/SCU-campus.jpg" class="bg">
     </div>
 
     <script type="text/javascript">

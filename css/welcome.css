@@ -1,15 +1,4 @@
 body{
-    /*background: -webkit-linear-gradient(#660099, #CCB2FF);
-    background: -o-linear-gradient(#660099, #CCB2FF);
-    background: -moz-linear-gradient(#660099, #CCB2FF);
-    background: linear-gradient(#FFCC00, white);*/
-    background: #FFCC00;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size:  100% 100%;
-    -moz-background-size:  100% 100%;
-    -o-background-size:  100% 100%;
-    background-size: 100% 100%;
     color: black;
     font-family: Papyrus, fantasy;
 }
@@ -20,24 +9,31 @@ table {
     border-spacing: 0;
     border-collapse: none;
 }
-input {
-    background: white;
-    color: black;
-    border: none;
-    font-family: Papyrus, fantasy;
-    text-align: center;
+
+img.bg {
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
 }
-input[type='button'], input[type='submit'],  button {
-    background: white;
-    color: black;
-    border: none;
-    font-family: Papyrus, fantasy;
-    cursor: pointer;
+.blur {
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  overflow: hidden;
 }
-input:focus, input:hover, input:active, button:hover {
-    outline: none;
-    box-shadow: 0 0 5px white;
-}
+
 #profile {
     text-align: center;
     margin-top: 0px;
@@ -46,7 +42,6 @@ input:focus, input:hover, input:active, button:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background: #FFF0B8;
 }
 
 #header {
@@ -105,7 +100,7 @@ input:focus, input:hover, input:active, button:hover {
     width: 30px;
     height: 30px;
     margin-top: 75px;
-    background: #FFE38F;
+    background: #800000;
 }
 #add_friend {
     margin-right: 10px;
@@ -117,7 +112,7 @@ input:focus, input:hover, input:active, button:hover {
 #friends h3 {
     width: 50%;
     height: 40px;
-    border: solid 1px #FFF0B8;
+    border: solid 1px #800000;
     margin-top: 0;
     margin-bottom: 1px;
     margin-right: 1px;
@@ -126,18 +121,18 @@ input:focus, input:hover, input:active, button:hover {
 #displaylist {
     overflow-y: scroll;
     top: 50px;
-    height: 100%;
+    height: 85%;
     width: 300px;
     left: 0;
     position: absolute;
-    border: solid 1px #FFF0B8;
+    border: solid 1px #800000;
 }
 #displaylist tr{
     border: none;
     cursor: pointer;
 }
 #displaylist tr:hover, #displaylist tr:focus, #displaylist tr:active {
-    background-color: #FFF0B8 ;
+    background-color: #800000 ;
 }
 #friendlist tr {
     height: 50px;
@@ -148,7 +143,7 @@ input:focus, input:hover, input:active, button:hover {
     width: 50px;
     margin: 5px;
     border: none;
-    background: #FFF0B8;
+    background: #800000;
     border-radius: 150px;
     -webkit-border-radius: 150px;
     -moz-border-radius: 150px;
@@ -188,7 +183,7 @@ input:focus, input:hover, input:active, button:hover {
     top: 0;
     left: 305px;
     width: 50%;
-    height: 100%;
+    height: 85%;
     position: absolute;
     margin-top: 0;
     margin-bottom: 1px;
@@ -198,7 +193,7 @@ input:focus, input:hover, input:active, button:hover {
 #notifications h3 {
     width: 100%;
     height: 40px;
-    border: solid 1px #FFF0B8;
+    border: solid 1px #800000;
     margin-top: 0;
     margin-bottom: 1px;
     margin-right: 0;
@@ -206,12 +201,12 @@ input:focus, input:hover, input:active, button:hover {
 }
 #sent_notifications {
     width: 100%;
-    height: 275px;
+    height: 50%;
     top: 40px;
     position: absolute;
     overflow-y: scroll;
     word-wrap: break-word;
-    border: solid 1px #FFF0B8;
+    border: solid 1px #800000;
     margin-top: 1px;
     margin-bottom: 1px;
     margin-right: 0;
@@ -222,16 +217,17 @@ input:focus, input:hover, input:active, button:hover {
 }
 #sent_notifications h5, #received_notifications h5 {
     margin-top: 0;
-    background: #FFF0B8;
+    background: #800000;
+    color: white;
 }
 #received_notifications {
     width: 100%;
-    height: 275;
+    height: 50%;
     bottom: 0;
-    top: 315px;
+    top: 278px;
     position: absolute;
     overflow-y: scroll;
-    border: solid 1px #FFF0B8;
+    border: solid 1px #800000;
     margin-top: 1px;
     margin-bottom: 0;
     margin-right: 0;
@@ -246,12 +242,21 @@ input:focus, input:hover, input:active, button:hover {
 /*#displaylist tr:nth-child(even) {
     background-color: #CCB2FF ;
 }*/
+#friends h3, #notifications h3{
+    background: #800000;
+    opacity: 0.8;
+    color: white;
+}
+#displaylist, #sent_notifications, #received_notifications {
+    background: white;
+    opacity: 0.8;
+}
 
 
 .popup_form {
-    border:5px solid #FFE38F;
+    border:5px solid #800000;
     padding:10px;
-    background:#FFCC00;
+    background:#FFFFFF;
     display: none;
     width: 400px;
     z-index: 200;
@@ -306,13 +311,15 @@ input:focus, input:hover, input:active, button:hover {
     display: none;
 }
 #uploadBtnTrigger:hover, #uploadBtnTrigger:focus, #uploadBtnTrigger:active {
-    color: white;
-    text-shadow: 0 0 20px white;
+    color: #800000;
+    text-shadow: #330000 0.1px 0.1px 0.1px;
 }
 #uploadBtnTrigger {
     cursor: pointer;
     margin-left: 10px;
-    font-size: 15px;
+    color: #800000;
+    font-size: 25px;
+    line-height: 5;
 }
 #picture_name {
     height: 25px;
@@ -330,7 +337,7 @@ input:focus, input:hover, input:active, button:hover {
     -moz-border-radius: 150px;
     -o-border-radius: 150px;
     border-radius: 150px;
-    background: #FFF0B8;
+    background: #800000;
     cursor: pointer;
 }
 .imageButton:hover {

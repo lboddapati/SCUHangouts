@@ -38,21 +38,39 @@ if(isset($_POST['login'])) {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
-<body>
+<body class="container text-center">
     <h1>SCU Hangouts</h1>
-    <p><?php echo $err ?></p>
+    <p class="error"><?php echo $err ?></p>
     <div id="form">
-        <form action="index.php" method="post">
-            <!--<label for="username">Username: </label>-->
-            <input name="username" type="text" placeholder="Username" required/> <br>
-            <!--<label for="password">Password: </label>-->
-            <input name="password" type="password" placeholder="Password" required/> <br>
-            <input type="submit" name="login" value="Login" id="login_button"/>
+        <form role="form" action="index.php" method="post">
+            <div class="form-group">
+                <!--<label for="username">Username: </label>-->
+                <input name="username" type="text" placeholder="Username" required/> <br>
+                <!--<label for="password">Password: </label>-->
+                <input name="password" type="password" placeholder="Password" required/> <br>
+                <input type="submit" name="login" value="Login" id="login_button"/>
+            </div>
         </form>
-        <a id="forgot" href="send_username_password.php">Forgot username/password?</a>    <!-- redirect to password recovery page-->
-        <a id="register" href="register.php">Sign up!</a>    <!-- redirect to registration page -->
+        <div id="links" class="row">
+            <div class="col-sm-4 text-right">
+                <a id="forgot" href="send_username_password.php">Forgot username/password?</a>    <!-- redirect to password recovery page-->
+            </div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4 text-left">
+                <a id="register" href="register.php">Sign up!</a>    <!-- redirect to registration page -->
+            </div>
+        </div>
+    </div>
+    <div class="blur">
+        <img src="images/SCU-campus.jpg" class="bg">
     </div>
 </body>
 </html>

@@ -9,10 +9,16 @@
 <html>
 <head>
     <title>Welcome <?php echo $username?>!</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/welcome.css">
 </head>
-<body>
+<body class="container text-center">
     <div id="profile">
             <div id="header">
                 <img id="profile_pic" src="<?php echo $pic?>" alt="change" text="change" onclick="popup_upload_profile_pic()"/>
@@ -20,12 +26,14 @@
             </div>
             <img id="logout" class="imageButton" src="icons/logout.png" alt="Logout" title="Logout" onclick="location.href='logout.php?username=<?php echo $username ?>'"/>
             <img id="add_friend" class="imageButton" src="icons/add_friend.png" alt="Add friend" title="Add friend" />
-            <form id="popup_edit_profile_pic" class="popup_form" enctype="multipart/form-data" name="popup_edit_profile_pic">
-                <input type="file" name="picture" id="new_picture" accept="image/*" required/>
-                <input type="text" id="picture_name" placeholder="No file chosen" disabled="disabled">
-                <span id="uploadBtnTrigger">Upload Profile Picture</span>
-                <input type="image" id="save" class="imageButton" alt="Save" title="Save" src="icons/ok.png"/>
-                <input type="image" class="cancel imageButton" alt="Cancel" src="icons/cancel.png">
+            <form role="form" id="popup_edit_profile_pic" class="popup_form" enctype="multipart/form-data" name="popup_edit_profile_pic">
+                <div class="form-group">
+                    <input type="file" name="picture" id="new_picture" accept="image/*" required/>
+                    <input type="text" id="picture_name" placeholder="Upload Profile Picture" disabled="disabled">
+                    <i id="uploadBtnTrigger" class="fa fa-cloud-upload"></i>
+                    <input type="image" id="save" class="imageButton" alt="Save" title="Save" src="icons/ok.png"/>
+                    <input type="image" class="cancel imageButton" alt="Cancel" src="icons/cancel.png">
+                </div>
             </form>
     </div>
     <div id="popup_add_friend" class="popup_form">
@@ -44,6 +52,10 @@
             <div id="sent_notifications"></div>
             <div id="received_notifications"></div>
         </div>
+    </div>
+
+    <div class="blur">
+        <img src="images/SCU-campus.jpg" class="bg">
     </div>
     
     <script>

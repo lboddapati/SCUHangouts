@@ -15,6 +15,9 @@
     <link rel="stylesheet" type="text/css" href="css/popup_chat_window.css">
 </head>
 <body>
+    <div class="blur">
+        <img src="images/SCU-campus.jpg" class="bg">
+    </div>
     <div id="chat"></div>
     <textarea name="message" id="message_box" wrap="hard"></textarea>
 
