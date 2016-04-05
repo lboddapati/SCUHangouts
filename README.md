@@ -1,6 +1,6 @@
-# SCUHangouts
+#SCUHangouts#
 
-#Features:
+##Features:##
 1. Registration - User can register with email, username, password. Optionally, he/she can upload a profile picture.
 
 2. Password recovery - User can request to email username and password to his/her registered email address.
@@ -22,5 +22,5 @@
   
   4.5 Logout - User can logout by clicking on the logout button on the top right corner of the page.
   
-#Live Demo:
+##Live Demo:##
 http://scuhangouts.boddapati.com
