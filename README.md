@@ -21,3 +21,6 @@
   4.4 Update profile picture - User can click on his/her profile picture to uppload a new picture.
   
   4.5 Logout - User can logout by clicking on the logout button on the top right corner of the page.
+  
+#Live Demo:
+http://scuhangouts.boddapati.com
